@@ -9,9 +9,7 @@ import org.web3j.crypto.ECKeyPair;
 import org.web3j.crypto.Keys;
 
 import java.security.SecureRandom;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
@@ -72,7 +70,7 @@ public class WalletUtil {
                 try {
                     while (true){
                         Account account = createWallet();
-                        if(account.getPrivateKey() != null && account.getPrivateKey().startsWith(prefix)){
+                        if(account.getPrivateKey() != null && (account.getPrivateKey().startsWith(prefix))){
                             System.out.println(JSON.toJSONString(account));
                             break;
                         }
